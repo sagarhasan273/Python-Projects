@@ -1,5 +1,11 @@
 XAMPP needed to install, start apache and mySQL
 
+you can install server and code chat also to see the aplication
+
+
+
+Run code:
+
 step 01: All you need to do just set given python venv as interpreter in python_project folder.
     or you can download all modules required.
 
