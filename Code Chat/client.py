@@ -244,7 +244,7 @@ class SampleApp(Tk):
         mydb = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="admin2968",
+            password="",
             database="python_project"
         )
         mycursor = mydb.cursor()
@@ -533,7 +533,7 @@ class RegistrationClass(Frame):
         mydb = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="admin2968",
+            password="",
             database="python_project"
         )
 
@@ -583,7 +583,7 @@ class RegistrationClass(Frame):
         mydb1 = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="admin2968"
+            password=""
         )
         mycursor = mydb1.cursor()
         mycursor.execute("USE {}".format(DB_NAME))
@@ -612,7 +612,7 @@ def connect_database():
 
     mydb = mysql.connector.connect(
         user='root',
-        password='admin2968',
+        password='',
         host='localhost'
     )
     myCursor = mydb.cursor()
