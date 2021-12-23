@@ -4,6 +4,8 @@ from logging import exception
 from tkinter import *
 from PIL import Image, ImageTk
 from tkinter import messagebox
+
+# import all the required modules
 import socket
 import threading
 from tkinter import font
@@ -11,6 +13,9 @@ from tkinter import ttk
 from win32api import GetSystemMetrics
 import pygame
 
+# import all functions /
+# everthing from chat.py file
+# from chat import *
 
 PORT = 80
 SERVER = socket.gethostbyname(socket.gethostname())
@@ -166,7 +171,8 @@ class GUI:
                             line_number, column = self.textCons.index(
                                 'end').split('.')
                             line_number = int(line_number)
-                            self.textCons.insert(END, " \t{}                           \n\n".format(msg))
+                            self.textCons.insert(
+                                END, " \t{}                           \n\n".format(msg))
                             self.textCons.tag_add('me', "{}.1".format(
                                 line_number-1), "{}.1000".format(line_number-1))
                             self.textCons.tag_config(

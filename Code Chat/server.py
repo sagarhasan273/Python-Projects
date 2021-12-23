@@ -1,11 +1,7 @@
 import socket
 import threading
-from tkinter import *
+import pickle
 
-frame = Tk()
-frame.title("Server Listener")
-frame.geometry("+600+200")
-frame.resizable(False, False)
 
 PORT = 80
 SERVER = socket.gethostbyname(socket.gethostname())
@@ -16,12 +12,11 @@ clients, names = [], []
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(ADDRESS)
 
-
 def startChat():
-    print("[Working] Server is working no {}".format(SERVER))
+    print("[Working] Server is working no " + SERVER)
     server.listen()
     print("[Listening] Server is listening...")
-
+    
     while True:
         conn, addr = server.accept()
         conn.send("NAME".encode(FORMAT))
@@ -30,8 +25,8 @@ def startChat():
 
         names.append(name)
         clients.append(conn)
-
-        print("Name is : {}".format(name))
+        
+        print(f"Name is : {name}")
 
         broadcastMessage(f"{name} has joined the chat!".encode(FORMAT))
 
@@ -40,7 +35,7 @@ def startChat():
         thread = threading.Thread(target=handle, args=(conn, addr))
         thread.start()
 
-        print("Active connections {}".format(threading.activeCount()-1))
+        print(f"Active connections {threading.activeCount()-1}")
 
 
 def handle(conn, addr):
@@ -56,6 +51,5 @@ def broadcastMessage(message):
     for client in clients:
         client.send(message)
 
-
-
+        
 startChat()
